@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #02338D;    /* Blue */
+  --secondary-color: #E41E26;  /* Red accent */
+  --background-color: #EAF0FA; /* Light neutral background */
+  --text-color: #333333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+}
