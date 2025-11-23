@@ -18,15 +18,11 @@ Route::post('/signup', [AuthController::class, 'register'])->name('signup.submit
 Route::get('/signin', [AuthController::class, 'showSignIn'])->name('signin.form');
 Route::post('/signin', [AuthController::class, 'login'])->name('signin.submit');
 
-Route::get('/dashboard', function () {
-    // simple protected placeholder, you can replace with controller
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-Route::get('/dashboard', [PatientController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
 // --- PROTECTED ROUTES (Requires Login) ---
 Route::middleware(['auth'])->group(function () {
