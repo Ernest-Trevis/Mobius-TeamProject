@@ -1,18 +1,23 @@
-<div class="card mb-4 shadow-sm">
-    <div class="card-header bg-info text-white">Available Doctors</div>
-    <div class="card-body">
-
-        @foreach($doctors as $doc)
-            <div class="p-3 border rounded mb-2">
-                <h5 class="mb-1 fw-bold">{{ $doc['name'] }}</h5>
-                <p class="mb-1">{{ $doc['specialization'] }}</p>
-                <span class="badge bg-secondary">Experience: {{ $doc['experience'] }} yrs</span>
-
-                <button class="btn btn-primary btn-sm mt-3 w-100">
-                    <i class="bi bi-calendar-plus me-1"></i> Book with {{ $doc['name'] }}
-                </button>
+<div class="card mb-4 shadow-sm fade-in">
+  <div class="card-header bg-info text-white">Available Doctors</div>
+  <div class="card-body">
+    <div class="row">
+      @foreach($doctors as $doc)
+        <div class="col-12 col-md-6 mb-3">
+          <div class="p-3 border rounded h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="fw-bold">{{ $doc['name'] }}</div>
+              <div class="text-muted small">{{ $doc['specialization'] }}</div>
+              @if(isset($doc['experience']))<div class="mt-1"><small class="text-muted">Experience: {{ $doc['experience'] }} years</small></div>@endif
             </div>
-        @endforeach
 
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn btn-primary btn-sm w-100">Book</button>
+              <button class="btn btn-outline-secondary btn-sm w-100" onclick="showToast('Profile', 'Doctor profile (demo)', 'info')">Profile</button>
+            </div>
+          </div>
+        </div>
+      @endforeach
     </div>
+  </div>
 </div>
