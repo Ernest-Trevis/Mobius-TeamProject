@@ -20,7 +20,7 @@ class MedicalRecordFactory extends Factory
         $patient = Patient::inRandomOrder()->first();
 
         if(!$patient)
-            $patient = Patient::factory()->create()
+            $patient = Patient::factory()->create();
 
         return [
             'patient_id'=> $patient->id,

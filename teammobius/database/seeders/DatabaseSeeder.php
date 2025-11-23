@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-namespace App\Http\Controllers;
+// namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\MedicalRecord;
@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
         // $doctors = User::factory(5)->create(['role' => 'doctor']);
         // $patients = User::factory(5)->create(['role' => 'patient']);
 
@@ -52,6 +52,6 @@ class DatabaseSeeder extends Seeder
             MedicalRecordSeeder::class,
             PrescriptionSeeder::class,
             AppointmentSeeder::class
-        ])
+        ]);
     }
 }

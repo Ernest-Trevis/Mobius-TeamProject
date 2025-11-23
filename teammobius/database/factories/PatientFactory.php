@@ -17,6 +17,7 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => \App\Models\User::factory()->patient(),
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'date_of_birth' => $this->faker->date('Y-m-d','2025-01-01'),

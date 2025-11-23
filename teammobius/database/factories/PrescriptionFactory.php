@@ -16,7 +16,14 @@ class PrescriptionFactory extends Factory
      */
     public function definition(): array
     {
+        $medicalRecord = \App\Models\MedicalRecord::inRandomOrder()->first();
+
+        if(!$medicalRecord){
+            $medicalRecord = \App\Models\MedicalRecord::factory()->create();
+        }
+
         return [
+            'medical_record_id' => $medicalRecord->id,
             'medication_name' => $this->faker->randomElement(['Amoxicillin','Ibruprofen','Lisinopril','Prednisone']),
             'dosage' => $this->faker->randomElement(['500mg','10mg',' 2 puffs','1 tablet']),
             'instructions' => $this->faker->sentence(6),
