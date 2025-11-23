@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Patient;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -19,6 +21,8 @@ class AppointmentFactory extends Factory
         $start = $this->faker->dateTimeBetween('-1 month','+1 month');
 
         return [
+            'patient_id' => Patient::factory(),
+            'doctor_id' => User::factory()->doctor(),
             'scheduled_at' => $start,
             'reason' => $this->faker->sentence(4),
             'notes' => $this->faker->paragraph(),
