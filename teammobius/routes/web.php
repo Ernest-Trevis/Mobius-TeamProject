@@ -48,6 +48,6 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('patients.records', MedicalRecordController::class)->except(['index']);
         
         // --- PRESCRIPTION MANAGEMENT (Nested Resource for adding/editing prescriptions) ---
-        Route::resource('records.prescriptions', PrescriptionController::class)->only(['store', 'update', 'destroy']);
+        Route::resource('records.prescriptions', PrescriptionController::class)->only(['index', 'store', 'update', 'destroy']);
     });
 });
