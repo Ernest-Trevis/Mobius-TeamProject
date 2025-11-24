@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function () {
 
         // --- APPOINTMENT MANAGEMENT (CRUD) ---
         Route::resource('appointments', AppointmentController::class);
+
+        // ---BOOKING OF APPOINTMENTS---
+        Route::get('/patient/booking', [AppointmentController::class, 'showBookingPage'])->name('patient.booking.index');
         
         // --- MEDICAL RECORD MANAGEMENT (Nested Resource) ---
         Route::resource('patients.records', MedicalRecordController::class)->except(['index']);
