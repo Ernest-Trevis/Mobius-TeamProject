@@ -27,4 +27,9 @@
 @include('patient.components.appointments-list', ['appointments' => $appointments])
 @include('patient.components.health-tips', ['tips' => $tips])
 
+ <button onclick="location.href='{{ route('booking.index') }}'"
+    style="width:100%; margin-bottom:1rem; padding:.75rem; background:#8B4513; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+    Book Appointment
+ </button>
+
 @endsection
