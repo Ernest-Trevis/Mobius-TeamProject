@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/my-records', [MedicalRecordController::class, 'showPatientRecords'])->name('patient.records');
 
     // --- ADMIN/DOCTOR VIEWS ---
-    Route::middleware(['role:admin,doctor'])->group(function () {
+    Route::middleware(['role:admin,doctor,patient'])->group(function () {
         
         // --- PATIENT MANAGEMENT (CRUD) ---
         Route::resource('patients', PatientController::class);
@@ -42,7 +42,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('appointments', AppointmentController::class);
 
         // ---BOOKING OF APPOINTMENTS---
-        Route::get('/patient/booking', [AppointmentController::class, 'showBookingPage'])->name('patient.booking.index');
+        Route::get('/booking', [AppointmentController::class, 'bookingIndex'])->name('booking.index');
+        Route::post('/booking', [AppointmentController::class, 'bookAppointment'])->name('booking.book');
         
         // --- MEDICAL RECORD MANAGEMENT (Nested Resource) ---
         Route::resource('patients.records', MedicalRecordController::class)->except(['index']);
