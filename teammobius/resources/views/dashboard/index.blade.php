@@ -229,7 +229,7 @@
                     Add New User
                 </button>
 
-                <button onclick="location.href='{{ route('records.prescriptions.index', ['record' => $recentMedicalRecordId ?? 1]) }}'"
+                <button onclick="location.href='{{ route('prescriptions.index', ['record' => $recentMedicalRecordId ?? 1]) }}'"
                     style="width:100%; margin-bottom:1rem; padding:.75rem; background:#4CAF50; color:#fff; border:none; border-radius:6px; cursor:pointer;">
                     Manage Prescriptions
                 </button>
